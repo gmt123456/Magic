@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: transparent;" stylesheets="@button.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.CanvasController">
+   <children>
+      <BorderPane prefHeight="800.0" prefWidth="1200.0">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefWidth="1200.0" style="-fx-background-color: rgb(131, 131, 231, 0.1);" BorderPane.alignment="CENTER">
+               <children>
+                  <ToggleButton mnemonicParsing="false" onAction="#chooseStroke" prefHeight="50.0" prefWidth="70.0" selected="true" styleClass="button" translateY="-1.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="brush" />
+                     </toggleGroup>
+                     <graphic>
+                        <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0" translateY="2.0">
+                           <image>
+                              <Image url="@../image/pencil.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton mnemonicParsing="false" onAction="#chooseFrame" prefHeight="50.0" prefWidth="70.0" styleClass="button" toggleGroup="$brush" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/frame.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></ToggleButton>
+                  <ToggleButton mnemonicParsing="false" onAction="#chooseEraser" prefHeight="50.0" prefWidth="70.0" styleClass="button" toggleGroup="$brush" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/eraser.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></ToggleButton>
+                  <RadioButton fx:id="oneLine" mnemonicParsing="false" onAction="#chooseOneLine" prefHeight="50.0" prefWidth="80.0" styleClass="button" translateY="-1.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/mark.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </RadioButton>
+                  <ColorPicker fx:id="colorPicker" onAction="#chooseColor" prefHeight="50.0" styleClass="button" translateY="-1.0" />
+                  <Slider fx:id="widthSlider" majorTickUnit="4.0" max="25.0" min="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" translateY="3.0">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin></Slider>
+                  <Line endY="25.0" startY="-25.0" stroke="#9d9d9d" />
+                  <Button mnemonicParsing="false" onAction="#last" prefHeight="50.0" prefWidth="80.0" styleClass="button" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/last.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#next" prefHeight="50.0" prefWidth="80.0" styleClass="button" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/next.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Line endY="25.0" startY="-25.0" stroke="#9d9d9d" />
+                  <Button mnemonicParsing="false" onAction="#clearAll" prefHeight="50.0" prefWidth="70.0" styleClass="button" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#saveGraphs" prefHeight="50.0" prefWidth="70.0" styleClass="button" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/save.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#importGraphs" prefHeight="50.0" prefWidth="70.0" styleClass="button" translateY="-1.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/import.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Text fx:id="position" fill="#727272" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin></Text>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane prefHeight="750.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="600.0" fitWidth="1000.0" layoutX="250.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.2;">
+                     <image>
+                        <Image url="@../image/background.jpg" />
+                     </image>
+                  </ImageView>
+                  <Canvas fx:id="canvasBlock" height="750.0" width="1200.0" />
+                  <Canvas fx:id="canvasStroke" height="750.0" onMouseDragged="#onMouseDrag" onMouseExited="#onMouseExit" onMouseMoved="#onMouseMove" onMousePressed="#onMousePress" onMouseReleased="#onMouseRelease" width="1200.0" />
+                  <Line endX="1100.0" layoutX="101.0" startX="-100.0" strokeWidth="0.4" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

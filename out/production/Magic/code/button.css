@@ -1,0 +1,15 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-border-radius: 0, 0;
+    -fx-background-radius: 0, 0;
+}
+
+.button:hover {
+    -fx-background-color: rgba(131, 131, 231, 0.2);
+}
+
+.button:selected {
+    -fx-background-color: rgba(131, 131, 231, 0.2);
+}
+
+
